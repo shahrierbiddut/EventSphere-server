@@ -1,6 +1,6 @@
 import { Router } from "express";
 import Event from "../models/Event";
-import { auth } from "../middleware/auth";
+import { verifyToken } from "../middleware/auth";
 
 const router = Router();
 
@@ -49,7 +49,7 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-router.post("/", auth, async (req: any, res, next) => {
+router.post("/", verifyToken, async (req: any, res, next) => {
   try {
     const eventData = req.body;
     
