@@ -6,21 +6,22 @@ import authRoutes from "./routes/auth";
 import bookingRoutes from "./routes/bookings";
 import eventRoutes from "./routes/events";
 import userRoutes from "./routes/users";
+import categoryRoutes from "./routes/categories";
+import blogRoutes from "./routes/blogs";
+import faqRoutes from "./routes/faqs";
 import { seedInitialData } from "./utils/seed";
 import adminRoutes from "./routes/admin";
 
 dotenv.config({ quiet: true });
 
 const app = express();
-app.use(cors({
-  origin: [
-    "http://localhost:3000",
-    "http://localhost:3001",
-  ],
-  credentials: true,
-}));
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "http://localhost:3001"],
+    credentials: true,
+  }),
+);
 app.use(express.json());
-
 
 app.get("/", (_req, res) => {
   res.send("Server is running!");
@@ -30,6 +31,9 @@ app.use("/api/auth", authRoutes);
 app.use("/api/events", eventRoutes);
 app.use("/api/bookings", bookingRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/categories", categoryRoutes);
+app.use("/api/blogs", blogRoutes);
+app.use("/api/faqs", faqRoutes);
 app.use("/api/admin", adminRoutes);
 
 app.use(
