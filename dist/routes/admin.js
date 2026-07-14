@@ -170,6 +170,26 @@ router.patch("/events/:id/publish", async (req, res) => {
         res.status(500).json({ message: "Error publishing event", error });
     }
 });
+router.patch("/events/:id/status", async (req, res) => {
+    try {
+        const { status } = req.body;
+        const event = await Event_1.default.findById(req.params.id);
+        if (!event)
+            return res.status(404).json({ message: "Event not found" });
+        event.status = status;
+        if (status === "published") {
+            event.isPublished = true;
+        }
+        else if (status === "rejected") {
+            event.isPublished = false;
+        }
+        await event.save();
+        res.json({ message: `Event status updated to ${status}`, event });
+    }
+    catch (error) {
+        res.status(500).json({ message: "Error updating event status", error });
+    }
+});
 // ==========================================
 // CATEGORIES
 // ==========================================
@@ -266,6 +286,15 @@ router.delete("/reviews/:id", async (req, res) => {
 // ==========================================
 // CONTACT MESSAGES
 // ==========================================
+router.get("/messages/unread-count", async (req, res) => {
+    try {
+        const count = await ContactMessage_1.default.countDocuments({ isRead: false });
+        res.json({ count });
+    }
+    catch (error) {
+        res.status(500).json({ message: "Error fetching unread messages count", error });
+    }
+});
 router.get("/messages", async (req, res) => {
     try {
         const messages = await ContactMessage_1.default.find().sort({ createdAt: -1 });

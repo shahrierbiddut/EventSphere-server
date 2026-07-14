@@ -11,15 +11,15 @@ const auth_1 = __importDefault(require("./routes/auth"));
 const bookings_1 = __importDefault(require("./routes/bookings"));
 const events_1 = __importDefault(require("./routes/events"));
 const users_1 = __importDefault(require("./routes/users"));
+const categories_1 = __importDefault(require("./routes/categories"));
+const blogs_1 = __importDefault(require("./routes/blogs"));
+const faqs_1 = __importDefault(require("./routes/faqs"));
 const seed_1 = require("./utils/seed");
 const admin_1 = __importDefault(require("./routes/admin"));
 dotenv_1.default.config({ quiet: true });
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)({
-    origin: [
-        "http://localhost:3000",
-        "http://localhost:3001",
-    ],
+    origin: ["http://localhost:3000", "http://localhost:3001"],
     credentials: true,
 }));
 app.use(express_1.default.json());
@@ -30,7 +30,15 @@ app.use("/api/auth", auth_1.default);
 app.use("/api/events", events_1.default);
 app.use("/api/bookings", bookings_1.default);
 app.use("/api/users", users_1.default);
+app.use("/api/categories", categories_1.default);
+app.use("/api/blogs", blogs_1.default);
+app.use("/api/faqs", faqs_1.default);
 app.use("/api/admin", admin_1.default);
+app.use("/api", (req, res) => {
+    res.status(404).json({
+        message: `Not Found: ${req.method} ${req.originalUrl}`,
+    });
+});
 app.use((error, _req, res, _next) => {
     const message = error instanceof Error ? error.message : "Server error";
     console.error(error);

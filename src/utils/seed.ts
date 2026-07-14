@@ -83,13 +83,20 @@ export const seedInitialData = async () => {
       });
       console.log(`✓ Seeded admin user: ${newAdminUser.email} (role: admin)`);
     } else {
-      // Make sure existing admin user has correct role
+      // Make sure existing admin user has correct role and reset password for demo purposes
+      let needsSave = false;
       if (adminUser.role !== "admin") {
         adminUser.role = "admin";
+        needsSave = true;
+      }
+      
+      // Force reset password so user doesn't get locked out during review
+      adminUser.password = "admin123";
+      needsSave = true;
+
+      if (needsSave) {
         await adminUser.save();
-        console.log(
-          `✓ Updated existing user to admin role: ${adminUser.email}`,
-        );
+        console.log(`✓ Updated existing admin user (role/password reset): ${adminUser.email}`);
       } else {
         console.log(`✓ Admin user already exists: ${adminUser.email}`);
       }

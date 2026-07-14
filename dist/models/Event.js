@@ -63,7 +63,8 @@ const eventSchema = new mongoose_1.Schema({
     description: { type: String, required: true, trim: true },
     isFeatured: { type: Boolean, default: false },
     isPublished: { type: Boolean, default: true },
-    status: { type: String, enum: ["draft", "published"], default: "published" },
+    status: { type: String, enum: ["draft", "pending", "published", "rejected"], default: "published" },
+    submittedBy: { type: mongoose_1.Schema.Types.ObjectId, ref: "User" },
 }, {
     timestamps: true,
     toJSON: { virtuals: true },

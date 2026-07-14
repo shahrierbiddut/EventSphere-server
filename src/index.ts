@@ -36,6 +36,12 @@ app.use("/api/blogs", blogRoutes);
 app.use("/api/faqs", faqRoutes);
 app.use("/api/admin", adminRoutes);
 
+app.use("/api", (req, res) => {
+  res.status(404).json({
+    message: `Not Found: ${req.method} ${req.originalUrl}`,
+  });
+});
+
 app.use(
   (
     error: unknown,
