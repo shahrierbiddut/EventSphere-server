@@ -29,6 +29,8 @@ const seedEvents = [
         shortDescription: "Join the biggest tech gathering of the year featuring top speakers from AI, Web3, and Software Engineering.",
         description: "The Global Tech Summit 2025 brings together industry leaders, innovators, and tech enthusiasts from around the world. Over three days, experience keynote speeches from renowned tech visionaries, interactive workshops, and networking opportunities.",
         isFeatured: true,
+        isPublished: true,
+        status: "published",
     },
     {
         title: "StartUp Founders Mixer",
@@ -54,6 +56,8 @@ const seedEvents = [
         shortDescription: "An exclusive networking event for early-stage startup founders and angel investors.",
         description: "Connect with fellow founders, share experiences, and pitch ideas to potential investors in a relaxed, informal setting.",
         isFeatured: true,
+        isPublished: true,
+        status: "published",
     },
     {
         title: "Symphony Under The Stars",
@@ -79,6 +83,8 @@ const seedEvents = [
         shortDescription: "A magical evening of classical music performed by the National Symphony Orchestra.",
         description: "Experience classical music in an open-air setting with family and friends.",
         isFeatured: false,
+        isPublished: true,
+        status: "published",
     },
     {
         title: "Digital Marketing Masterclass",
@@ -104,6 +110,8 @@ const seedEvents = [
         shortDescription: "Learn advanced SEO, PPC, and social media strategies from industry experts.",
         description: "A comprehensive online masterclass for marketers looking to level up their skills.",
         isFeatured: true,
+        isPublished: true,
+        status: "published",
     },
     {
         title: "National Art Exhibition 2025",
@@ -129,6 +137,8 @@ const seedEvents = [
         shortDescription: "Discover contemporary artworks from emerging and established artists.",
         description: "The annual National Art Exhibition showcases painting, sculpture, photography, and digital art.",
         isFeatured: false,
+        isPublished: true,
+        status: "published",
     },
     {
         title: "International Food Festival",
@@ -154,6 +164,8 @@ const seedEvents = [
         shortDescription: "Taste the world in one place with stalls featuring cuisines from many countries.",
         description: "Enjoy live cooking demonstrations, food tasting sessions, and entertainment.",
         isFeatured: true,
+        isPublished: true,
+        status: "published",
     },
     {
         title: "Dhaka Half Marathon 2026",
@@ -179,6 +191,8 @@ const seedEvents = [
         shortDescription: "Run for health and community in the heart of Dhaka. Join the annual half marathon.",
         description: "The Dhaka Half Marathon 2026 is back! Runners of all levels are welcome to participate. Experience the iconic Hatirjheel route with water stations, medical support, and official timing chips.",
         isFeatured: true,
+        isPublished: true,
+        status: "published",
     },
     {
         title: "Standup Comedy Night",
@@ -204,6 +218,8 @@ const seedEvents = [
         shortDescription: "Get ready for a night of non-stop laughter with top local and guest standup comedians.",
         description: "Join us for Standup Comedy Night featuring an incredible lineup of local comedians and a special guest host. Bring your friends, enjoy drinks, and laugh the night away.",
         isFeatured: true,
+        isPublished: true,
+        status: "published",
     },
     {
         title: "National Hackathon 2026",
@@ -229,6 +245,8 @@ const seedEvents = [
         shortDescription: "A 36-hour intense hackathon to build solutions for real-world civic challenges.",
         description: "Assemble your team and join the ultimate coding battle. Focus areas include Smart Cities, HealthTech, and Clean Energy. Great mentorship, food, and massive prize pools await!",
         isFeatured: true,
+        isPublished: true,
+        status: "published",
     },
     {
         title: "Mindfulness & Yoga Retreat",
@@ -254,6 +272,8 @@ const seedEvents = [
         shortDescription: "Rejuvenate your body and mind with guided meditation and professional yoga sessions.",
         description: "Escape the city hustle and find inner peace in the beautiful tea gardens. Includes breakfast, vegetarian lunch, guided mindfulness walking, sound healing, and Hatha yoga workshops.",
         isFeatured: true,
+        isPublished: true,
+        status: "published",
     },
     {
         title: "Chaya Photography Exhibition",
@@ -279,6 +299,8 @@ const seedEvents = [
         shortDescription: "A visual exploration of shadows, city streets, and human emotions through monochrome photography.",
         description: "Featuring stunning black-and-white photography submissions from over 30 award-winning national and international photojournalists. Curated talks by the artists are held daily.",
         isFeatured: false,
+        isPublished: true,
+        status: "published",
     },
     {
         title: "Dhaka Gaming Arena 2026",
@@ -304,6 +326,8 @@ const seedEvents = [
         shortDescription: "The ultimate e-sports tournament featuring Valorant, FIFA, and Mobile Legends matches.",
         description: "Join the biggest gaming tournament of the season. Compete against top players, enjoy interactive console lounges, and experience esports final matches live on a giant screen.",
         isFeatured: true,
+        isPublished: true,
+        status: "published",
     },
 ];
 exports.default = seedEvents;

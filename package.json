@@ -4,9 +4,9 @@
   "description": "EventSphere backend server",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "nodemon --exec ts-node src/index.ts",
+    "dev": "node api.js && nodemon --exec ts-node src/index.ts",
     "build": "tsc",
-    "start": "node dist/index.js",
+    "start": "node api.js && node dist/index.js",
     "lint": "eslint . --ext .ts"
   },
   "keywords": [],
@@ -19,7 +19,8 @@
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
-    "mongoose": "^9.7.4"
+    "mongoose": "^9.7.4",
+    "node-fetch": "^3.3.2"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
