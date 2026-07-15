@@ -1,26 +1,29 @@
 import { Router } from "express";
-import Blog from "../models/Blog";
+import FAQ from "../models/FAQ";
 
 const router = Router();
 
-// Get all published blogs
+// Get all FAQs grouped by category
 router.get("/", async (req, res, next) => {
   try {
-    const blogs = await Blog.find({ published: true }).sort({ createdAt: -1 });
-    return res.json(blogs);
+    const faqs = await FAQ.find({ active: true }).sort({
+      category: 1,
+      order: 1,
+    });
+    return res.json(faqs);
   } catch (error) {
     return next(error);
   }
 });
 
-// Get single blog by slug
-router.get("/:slug", async (req, res, next) => {
+// Get FAQs by category
+router.get("/category/:category", async (req, res, next) => {
   try {
-    const blog = await Blog.findOne({ slug: req.params.slug, published: true });
-    if (!blog) {
-      return res.status(404).json({ message: "Blog not found" });
-    }
-    return res.json(blog);
+    const faqs = await FAQ.find({
+      category: req.params.category,
+      active: true,
+    }).sort({ order: 1 });
+    return res.json(faqs);
   } catch (error) {
     return next(error);
   }
